@@ -15619,7 +15619,7 @@ static ssize_t wlan_hdd_state_ctrl_param_write(struct file *filp,
 			goto exit;
 		}
 	}
-	
+
 	if (!cds_is_driver_loaded() || cds_is_driver_recovering()) {
 		rc = wait_for_completion_timeout(&wlan_start_comp,
 				msecs_to_jiffies(HDD_WLAN_START_WAIT_TIME));
@@ -16774,12 +16774,14 @@ static int wlan_deinit_sysfs(void)
 static int hdd_module_init(void)
 {
 	int ret;
+
 	ret = wlan_hdd_state_ctrl_param_create();
 	if (ret)
 		pr_err("wlan_hdd_state_create:%x\n", ret);
+
 	return ret;
 }
-#else
+
 /**
  * hdd_module_exit() - Exit function
  *
