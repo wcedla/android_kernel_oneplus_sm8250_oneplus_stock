@@ -137,7 +137,8 @@ all.config
 kernel/configs/android-*.cfg
 
 # Tech package directories
-techpack/
+#techpack/
 
 # ignore net/oplus_modules
-net/oplus_modules
+#net/oplus_modules
+/out/
