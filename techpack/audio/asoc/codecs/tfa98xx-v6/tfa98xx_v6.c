@@ -486,13 +486,13 @@ static ssize_t kernel_debug_read(struct file *file, char __user *buf,
 	char buffer[size];
 	int n = 0;
 
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_load_file);
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_clk);
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_SpeakerCalibration);
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_path);
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_spk_resistance);
-	n += scnprintf(buffer + n, size - n, "%s ", ftm_tfa98xx_flag);
-	n += scnprintf(buffer + n, size - n, "%d ", ftm_mode);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_load_file);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_clk);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_SpeakerCalibration);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_path);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_spk_resistance);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%s ", ftm_tfa98xx_flag);
+	n += scnprintf(buffer + n, sizeof(buffer) - n, "%d ", ftm_mode);
 
 	return simple_read_from_buffer(buf, count, pos, buffer, n);
 }
